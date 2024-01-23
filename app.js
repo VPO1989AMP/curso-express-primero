@@ -5,6 +5,15 @@ const morgan = require("morgan")
 const app = ex()
 const {Pool} =require('pg')
 const { Web3 } = require('web3')
+const {Client} = require('minio')
+
+const minioClient=new Client({
+    endPoint:"localhost",
+    port:9009,
+    accesKey:"minioadmin",
+    secretKey:"minioadmin",
+    userSSL:false,
+})
 
 const WEB3_PROVIDER="https://goerli.infura.io/v3/cd69ba0af5044acbb37d50bee8be7bb5"
 
@@ -188,6 +197,16 @@ app.get("/web3/balance/:address", async(req,res)=>{
     res.send(balance)
     }catch (error){
         res.status(500).send({error})
+    }
+})
+
+
+app.post("/minio/createBucket", async(req,res)=>{
+    try{
+        await minioClient.makeBucket(req.body.nombre, 'us-east-1')
+        res.status(200).send({resultado:"ok"})  
+    }catch(error){
+        res.status(500).send({error})  
     }
 })
 
