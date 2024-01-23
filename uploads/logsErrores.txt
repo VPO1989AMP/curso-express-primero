@@ -40,3 +40,4 @@
 ::1 - - [23/Jan/2024:12:22:43 +0000] "GET /web3/balance/0xc6E8C9Da3888e23B009fc54dea0204a891caed45 HTTP/1.1" 500 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [23/Jan/2024:12:23:08 +0000] "GET /web3/balance/0xc6E8C9Da3888e23B009fc54dea0204a891caed45 HTTP/1.1" 500 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 ::1 - - [23/Jan/2024:12:23:50 +0000] "GET /web3/balance/0xc6E8C9Da3888e23B009fc54dea0204a891caed45 HTTP/1.1" 500 41 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [23/Jan/2024:14:24:27 +0000] "GET /web3/balance/0xc6E8C9Da3888e23B009fc54dea0204a891caed45 HTTP/1.1" 500 41 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
