@@ -1,0 +1,43 @@
+get http://localhost:3333
+
+###
+post http://localhost:3333/addUser
+
+###
+post http://localhost:3333/echoPostJson
+content-type: application/json
+
+{"camp1":"valor1"}
+
+###
+post http://localhost:3333/echoPostExtended
+content-type: application/x-www-form-urlencoded
+
+a=1&a=2&a=3&person[name]=jose&person[age]=45
+
+
+###
+post http://localhost:3333/echoPost?a=1&b=2&c=45&c=5&c=3
+content-type: application/x-www-form-urlencoded
+
+a=1&a=2&a=3&person[name]=jose&person[age]=45
+
+
+###
+post http://localhost:3333/echoParamPost/2222/facturas/F123456?c=45&a=2&b=2&c=3&c=45&c=5
+content-type: application/x-www-form-urlencoded
+
+a=1&a=2&a=3&person[name]=jose&person[age]=45
+
+
+###
+get http://localhost:3333/echoParamGet/2222/facturas/F123456?c=45&a=2&b=2&c=3&c=45&c=5
+
+###
+get http://localhost:3333
+
+
+###
+get http://localhost:3333/docs/p1.html
+
+
