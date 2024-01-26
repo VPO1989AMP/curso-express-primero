@@ -41,3 +41,15 @@ get http://localhost:3333
 get http://localhost:3333/docs/p1.html
 
 
+###
+post http://localhost:3344/minio/createBucket
+content-Type: application/json
+
+{"nombre":"curso2"}
+
+
+###
+delete http://localhost:3344/minio/curso/informe-cb.pdf
+
+
+

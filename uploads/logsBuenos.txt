@@ -34,3 +34,15 @@ GET /bdd/orders/ANATR/10625 200 403 - 72.194 ms
 GET /bdd/orders/ANATR/10625 304 - - 72.988 ms
 GET /welcome 304 - - 2.794 ms
 GET /bdd/customers 304 - - 32.868 ms
+POST /minio/createBucket 200 43 - 6.709 ms
+POST /minio/createBucket 200 18 - 170.117 ms
+POST /minio/createBucket 200 18 - 31.455 ms
+POST /minio/createBucket 200 18 - 10.795 ms
+POST /minio/addFile 200 18 - 50.242 ms
+POST /minio/addFile 200 18 - 8.284 ms
+GET /minio/curso/test.txt 200 - - 27.731 ms
+GET /minio/curso/test.txt 200 - - 3.001 ms
+POST /minio/addFile 200 18 - 24.352 ms
+GET /minio/curso/informe-cb.pdf 200 - - 4.940 ms
+GET /minio/curso/informe-cb.pdf 200 - - 3.919 ms
+GET /minio/curso/informe-cb.pdf 200 - - 5.860 ms

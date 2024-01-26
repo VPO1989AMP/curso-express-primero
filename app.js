@@ -5,14 +5,15 @@ const morgan = require("morgan")
 const app = ex()
 const {Pool} =require('pg')
 const { Web3 } = require('web3')
+
 const {Client} = require('minio')
 
 const minioClient=new Client({
     endPoint:"localhost",
     port:9009,
-    accesKey:"minioadmin",
+    accessKey:"minioadmin",
     secretKey:"minioadmin",
-    userSSL:false,
+    useSSL:false,
 })
 
 const WEB3_PROVIDER="https://goerli.infura.io/v3/cd69ba0af5044acbb37d50bee8be7bb5"
@@ -201,12 +202,50 @@ app.get("/web3/balance/:address", async(req,res)=>{
 })
 
 
-app.post("/minio/createBucket", async(req,res)=>{
-    try{
+
+app.post("/minio/createBucket", async (req, res) => {
+    console.log("recibida solicitud post crear bucket")
+    try {
         await minioClient.makeBucket(req.body.nombre, 'us-east-1')
-        res.status(200).send({resultado:"ok"})  
-    }catch(error){
-        res.status(500).send({error})  
+        res.status(200).send({ resultado:"ok" })
+    } catch(error){
+        console.log(error)
+        res.status(500).send({error})
+    }
+
+})
+
+app.post("/minio/addFile", async (req, res) => {
+    const bucket = req.body.bucket
+    const file   = req.files.fichero
+    console.log(bucket, file.name)
+    try {
+        await minioClient.putObject(bucket,file.name,file.data)
+        res.status(200).send({resultado: "ok"})
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({error})
+    }
+})
+
+
+app.get("/minio/:bucket/:fichero", async(req,res)=>{
+    try {
+        const dataStream = await minioClient.getObject(req.params.bucket, req.params.fichero)
+        dataStream.pipe(res)    
+    } catch (error) {
+        res.status(500).send({error})
+    }
+    
+
+})
+
+//permite una url para dar borrado
+app.delete("/minio/:bucket/:fichero" ,async(req,res) =>{
+    try {
+        minioClient.removeObjects(req.params.bucket,req.params.fichero)
+    } catch (error) {
+        res.status(500).send({error})
     }
 })
 
